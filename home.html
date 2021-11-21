@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>
+            HomePage
+        </title>
+
+        <style>
+          #table_block
+          {
+            display: none;
+          }
+
+        </style>
+    </head>
+
+    <body>
+
+          <div id='Input_block'>
+
+            <form action="" method="post">
+                <p>
+                <label for="number_states">Enter Number of States</label>
+                <input id="number_states" class="input" type="number" placeholder="Max 6" min="1" max="6"></p>
+                <p>
+                <label for="number_symbols">Enter Number of Input Symbols</label>
+                <input id="number_symbols" class="input" type="number" placeholder="Max 6" min="1" max="6"></p>
+                <p>
+
+                <button type="button" name="button" onclick="Geeks()">
+                    Submit
+                </button>
+
+            </form>
+
+          </div>
+
+
+        <div id="table_block">
+
+            <h3 id="po">Input Array Elements</h3>
+
+            <p id="par"></p>
+
+            <button type="button" name="button" onclick="show_states()">
+              Submit
+            </button>
+
+            <p id="temp"></p>
+
+        </div>
+
+
+
+        <script>
+
+            function Geeks()
+            {
+
+
+                var no_states = document.getElementById("number_states").value;
+                var no_symbs = document.getElementById("number_symbols").value;
+
+                no_states = Number(no_states);
+
+                document.getElementById('Input_block').style.display = 'none';
+                document.getElementById('table_block').style.display = 'block';
+
+                var state_input = "";
+
+
+                for(let i=0;i<no_states;i++)
+                {
+                  for(let j=0;j<no_symbs;j++)
+                  {
+                    state_input = state_input + "<input type='text' name='array[]'' value='' />";
+                  }
+                  state_input = state_input + "<br>";
+                }
+                
+
+                document.getElementById("par").innerHTML = state_input;
+                document.getElementById("po").innerHTML = "Insert " + no_states + " states.";
+
+
+            }
+
+            function show_states() 
+            {
+
+              alert("check 3");
+
+              var input = document.getElementsByName('array[]');
+
+              var k ="";
+    
+              for (var i = 0; i < input.length; i++) 
+              {
+                  var a = input[i];
+                  k = k + "array[" + i + "].value= " + a.value + " <br> ";
+              }
+    
+              document.getElementById("temp").innerHTML = k;
+            }
+
+        </script>
+
+
+
+
+    </body>
+
+</html>
+
+
+
